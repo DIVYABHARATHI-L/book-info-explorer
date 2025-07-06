@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Books</title>
+    <link rel="stylesheet" href="../public/style/style.css">
+</head>
+<body>
+    <h1>Saved Books</h1>
+    <ul>
+        <% books.forEach(book =>{ %>
+            <li> 
+                <p>Title: <%=book.title%></p> 
+                <p>Author: <%=book.authors%></p> 
+                <p>Publisher: <%=book.publisher%></p> 
+            </li>
+        <%})%>
+    </ul>
+    <a href="/">Search more</a>
+    
+</body>
+</html>

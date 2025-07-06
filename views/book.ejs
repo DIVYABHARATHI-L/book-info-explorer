@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search results</title>
+    <link rel="stylesheet" href="../public/style/style.css">
+</head>
+<body>
+    <h1>Search Results</h1>
+    <% if (books.length === 0) { %>
+        <p>No book found.</p>
+        <% } else { %>
+        <ul>
+            <% books.forEach(book=>{ 
+                const info = book.volumeInfo;
+                %>
+                <li>
+                    <h2><%= info.title %></h2>
+                    <p> Author: <%= info.authors %></p>
+                    <p> Publisher: <%= info.publisher || "Unknown" %></p>
+
+                    <form action="/save" method="post">
+                        <input type="hidden" name="title" value="<%= info.title %>"/>
+                        <input type="hidden" name="authors" value="<%= info.authors %>"/>
+                        <input type="hidden" name="publisher" value="<%= info.publisher %>"/>
+                        <button type="submit">Save</button>
+                    </form>
+                </li>
+            <% });%>
+        </ul>
+        <% } %>
+
+        <a href="/">Search again</a>
+    
+</body>
+</html>
